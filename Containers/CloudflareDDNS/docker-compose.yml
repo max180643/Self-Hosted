@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  wireguard:
+  cloudflare:
     image: oznu/cloudflare-ddns:latest
     container_name: cloudflare-ddns
     environment:
