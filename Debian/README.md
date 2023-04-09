@@ -13,6 +13,12 @@ $ apt upgrade
 $ apt install nano
 ```
 
+**Git**
+
+```bash
+$ apt install git
+```
+
 ### Setup Sudo
 
 **Step 1:** Install sudo package
