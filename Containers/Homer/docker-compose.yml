@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  homer:
+    image: b4bz/homer:latest
+    container_name: homer
+    volumes:
+      - ~/homer/assets:/www/assets
+    ports:
+      - "8030:8080"
+    restart: always
