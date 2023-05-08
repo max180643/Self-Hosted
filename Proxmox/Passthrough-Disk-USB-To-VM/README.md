@@ -7,8 +7,10 @@ Proxmox Web interface allows you can add only USB disks or flash drives to the v
 **Command syntax**
 
 ```bash
-$ qm set <vm_id> -[virtio2|sata|ide|scsi] <disk_path>
+$ qm set <vm_id> -[virtio|sata|ide|scsi]<disk_id> <disk_path>
 ```
+
+Example: <disk_id> = 0, 1, 2, ... (warning: override existing configuration)
 
 #### How to get Disk Path
 
