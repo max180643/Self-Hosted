@@ -1,0 +1,11 @@
+{
+  "name": "eWeLink",
+  "username": "+6608xxxxxxxx",
+  "password": "xxxxx",
+  "mode": "auto",
+  "debug": true,
+  "language": "en",
+  "countryCode": "+66",
+  "platform": "eWeLink",
+  "ignoreDevice": []
+}
