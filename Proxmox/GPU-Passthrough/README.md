@@ -18,10 +18,10 @@ Old:
 GRUB_CMDLINE_LINUX_DEFAULT="quiet"
 ```
 
-New:
+New :
 
 ```properties
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream,multifunction nofb nomodeset video=vesafb:off video=efifb:off initcall_blacklist=sysfb_init"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream,multifunction nofb nomodeset video=vesafb:off,efifb:off"
 ```
 
 1.3
@@ -59,6 +59,7 @@ Step 4: Blacklisting Drivers
 $ echo "blacklist radeon" >> /etc/modprobe.d/blacklist.conf
 $ echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
 $ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
+$ echo "blacklist nvidiafb" >> /etc/modprobe.d/blacklist.conf
 ```
 
 Step 5: Adding GPU to VFIO
@@ -154,7 +155,6 @@ nano /etc/pve/qemu-server/<vmid>.conf
 
 ```properties
 cpu: host,hidden=1,flags=+pcid
-args: -cpu 'host,+kvm_pv_unhalt,+kvm_pv_eoi,hv_vendor_id=NV43FIX,kvm=off'
 ```
 
 Step 4: Add PCI Devices (Your GPU) to VM (From Web UI)
@@ -163,7 +163,7 @@ Step 4: Add PCI Devices (Your GPU) to VM (From Web UI)
 ```properties
 All Functions: YES
 Rom-Bar: YES
-Primary GPU: NO
+Primary GPU: YES
 PCI-Express: YES (requires 'machine: q35' in vm config file)
 ```
 
@@ -205,3 +205,4 @@ Step 5: START THE VM!
   ](https://www.reddit.com/r/homelab/comments/b5xpua/the_ultimate_beginners_guide_to_gpu_passthrough/)
 - [Ultimate Beginner's Guide to Proxmox GPU Passthrough - Gist](https://gist.github.com/qubidt/64f617e959725e934992b080e677656f)
 - [GPU passthrough on single GPU systems troubleshooting](https://www.reddit.com/r/Proxmox/comments/1118opd/psa_gpu_passthrough_on_single_gpu_systems/)
+- [Configure Proxmox GPU Passthrough (Step-by-Step Tutorial)](https://www.youtube.com/watch?v=IE0ew8WwxLM)
