@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   homer:
     image: b4bz/homer:latest
@@ -7,5 +5,5 @@ services:
     volumes:
       - ~/homer/assets:/www/assets
     ports:
-      - "8030:8080"
+      - "8085:8080"
     restart: always

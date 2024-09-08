@@ -1,17 +1,15 @@
-version: "3.9"
-
 services:
   wireguard:
-    image: weejewel/wg-easy:latest
-    container_name: wireguard-vpn
+    image: ghcr.io/wg-easy/wg-easy
+    container_name: wireguard
     volumes:
-      - ~/wg-easy/wireguard:/etc/wireguard
+      - ~/wireguard/wireguard:/etc/wireguard
     ports:
       - "51820:51820/udp"
-      - "8020:51821"
+      - "8021:51821"
     environment:
       WG_HOST: ${WG_HOST}
-      PASSWORD: ${WG_PASSWORD}
+      PASSWORD_HASH: ${WG_PASSWORD}
     restart: always
     cap_add:
       - NET_ADMIN
