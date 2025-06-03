@@ -1,0 +1,10 @@
+services:
+    shadowsocks-v2ray:
+      image: teddysun/shadowsocks-libev
+      container_name: shadowsocks-v2ray-server
+      ports:
+        - "8388:8388/tcp"
+        - "8388:8388/udp"
+      volumes:
+        - /shadowsocks-libev:/etc/shadowsocks-libev
+      restart: unless-stopped
